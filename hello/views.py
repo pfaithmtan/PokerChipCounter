@@ -13,5 +13,9 @@ def index(request):
 
 def db(request):
 
-    rooms = Room.objects.all()
-    return render(request, "db.html", {"rooms": rooms})
+    greeting = Greeting()
+    greeting.save()
+
+    greetings = Greeting.objects.all()
+
+    return render(request, "db.html", {"greetings": greetings})
